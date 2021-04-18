@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favico.ico') }}">
-</head>
-<body>
-	<p><a href=http://18.139.115.83/>Home</a></p>
-	<h3>QR Code Generator:</h3>
+{% extends "layout.html" %}
+
+{% block content %}
+	<h1>QR Code Generator</h1>
 	<form action="/showqr">
 	  <label>Input text:</label><br><br>
 	  <input type="text" id="qrdata" name="qrdata"><br><br>
@@ -21,5 +14,4 @@
 
 	  <input type="submit" value="Submit">
 	</form>
-</body>
-</html>
+{% endblock content %}

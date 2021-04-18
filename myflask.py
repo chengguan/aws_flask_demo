@@ -48,6 +48,10 @@ def show_qr():
             fgcolor=fg_color,
             bgcolor=bg_color)
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html', error=error), 404
