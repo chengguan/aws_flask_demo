@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve myflask
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/myflask
+#Environment="PATH=/home/ubuntu/myflask/venv/bin"
+ExecStart=/home/ubuntu/myflask/venv/bin/uwsgi --ini myflask.ini
+
+[Install]
+WantedBy=multi-user.target
