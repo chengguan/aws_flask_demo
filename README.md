@@ -3,7 +3,7 @@
 Install system packages:
 - nginx
 - python3
-- pip3/
+- pip3
 
 sudo apt update
 sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
