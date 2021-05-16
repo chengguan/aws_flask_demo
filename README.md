@@ -1,3 +1,17 @@
+#########################################################
+# 13th May 2021
+To build uwsgi-nginx-flask image:
+sudo docker run -p 80:80 -t <image name>
+
+To run the image:
+sudo docker run -d -p 80:80 -t <image name>
+
+TODO:
+- add docker compose script
+
+
+#########################################################
+#
 # aws_flask_demo
 
 Install system packages:
@@ -26,3 +40,4 @@ sudo systemctl enable myproject
 
 sudo systemctl restart nginx
 sudo systemctl restart myflask # restart application
+
