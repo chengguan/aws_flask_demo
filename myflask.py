@@ -2,7 +2,9 @@ from flask import Flask, request, render_template
 import datetime
 import base64
 import io
+import os
 import qrcode
+from make_wikitable import *
 
 app = Flask(__name__)
 
@@ -47,6 +49,22 @@ def show_qr():
             box_size=box_size,
             fgcolor=fg_color,
             bgcolor=bg_color)
+
+@app.route('/get_wikitable', methods = ['GET', 'POST'])
+def get_wikitable():
+    if request.method == 'POST':
+        f = request.files['file']
+        os.chdir('static/wiki')
+        f.save(f.filename)
+        print(f.filename, " uploaded.")
+
+        try:
+            wiki_tables = make_wikitable_from_file(f.filename)
+            return render_template('wiki_tables.html', filename=f.filename, wiki_tables=wiki_tables)
+        except:
+            return render_template('get_wikitable.html', error_msg=f'Error converting {f.filename}')
+    else:
+        return render_template('get_wikitable.html')
 
 @app.route("/about")
 def about():
