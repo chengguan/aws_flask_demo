@@ -1,7 +1,7 @@
 #########################################################
 # 13th May 2021
 To build uwsgi-nginx-flask image:
-sudo docker run -p 80:80 -t <image name>
+sudo docker build -t <image name> .
 
 To run the image:
 sudo docker run -d -p 80:80 -t <image name>
